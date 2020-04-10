@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+header{
+    height: 100px;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    background-color: #555555;
+    color: white;
+}
+main{
+    margin-top: 30px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.makeNew, .homebutton{
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    border: solid 1px;
+    border-radius: 10px;
+    background-color:#dddddd;
+}
+div.post{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px dashed;
+    border-radius: 5px;
+    padding: 20px;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="kor">
+    <head>
+        <meta charset="utf-8">
+        <title>Things I ate today</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            header{
+                height: 100px;
+                padding-top: 30px;
+                text-align: center;
+                font-size: 30px;
+                background-color: #555555;
+                color: white;
+            }
+            main{
+                margin-top: 30px;
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            button, .makeNew, .homebutton{
+                margin: 0 auto;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                width: 100px;
+                padding: 5px;
+                text-align: center;
+                font-size: 15px;
+                border: solid 1px;
+                border-radius: 10px;
+                background-color:#dddddd;
+            }
+            div.post{
+                width: 50%;
+                margin: 0 auto;
+                margin-top: 20px;
+                border: 1px dashed;
+                border-radius: 5px;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>오늘 뭐 먹었음?</header>
+        <main>
+            <div class="post">
+            <form method="POST" class="post-form">{% csrf_token%}
+                {{form.as_p}}
+                <button type="submit">저장</button>
+            </form>
+            </div>
+            <div class="homebutton"><a href="{% url 'home' %}">home</a></div>
+        </main>
+    </body>
+</html>
