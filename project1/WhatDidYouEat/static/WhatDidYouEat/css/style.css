@@ -13,6 +13,7 @@ main{
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    height:auto;
 }
 button, .makeNew, .homebutton{
     margin: 0 auto;
