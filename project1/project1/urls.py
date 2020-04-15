@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', WhatDidYouEat.views.home, name="home"),
     path('today/', WhatDidYouEat.views.today, name="today"),
-    path('detail/<int:index>', WhatDidYouEat.views.detail, name="detail"),
-    path('edit/<int:index>', WhatDidYouEat.views.edit, name="edit"),
+    path('detail/<int:pk>', WhatDidYouEat.views.detail, name="detail"),
+    path('edit/<int:pk>', WhatDidYouEat.views.edit, name="edit"),
     path('detail/<int:pk>/delete', WhatDidYouEat.views.delete, name="delete"),
 ]

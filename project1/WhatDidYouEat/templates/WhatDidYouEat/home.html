@@ -16,7 +16,7 @@
         <main>
             {%for post in post_list%}
                 <div class="post">
-                    <a href="{% url 'detail' index=post.pk %}">{{post.title}}</a><br>
+                    <a href="{% url 'detail' pk=post.pk %}">{{post.title}}</a><br>
                     <p style="font-size: 11px;">{{post.pub_date}}</p>
                 </div>
             {%endfor%}

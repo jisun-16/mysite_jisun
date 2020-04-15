@@ -15,7 +15,7 @@
             <hr>
             <div>
                 <a href="{% url 'delete' pk=post.pk %}" class="postEdit">삭제하기</a>
-                <a href="{% url 'edit' index=post.pk %}" class="postEdit">수정하기</a>
+                <a href="{% url 'edit' pk=post.pk %}" class="postEdit">수정하기</a>
             </div>
         </main>
     </body>
