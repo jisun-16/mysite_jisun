@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="kor">
@@ -9,17 +8,15 @@
     </head>
     <body>
         <header><a href="{%url 'home'%}" style="color: white;">오늘 뭐 먹었음?</a></header>
-        <div class="postEdit">
-            <a href="{% url 'today' %}">기록하기</a>
-        </div>
-
         <main>
-            {%for post in post_list%}
-                <div class="post">
-                    <a href="{% url 'detail' index=post.pk %}">{{post.title}}</a><br>
-                    <p style="font-size: 11px;">{{post.pub_date}}</p>
-                </div>
-            {%endfor%}
+            <h1>{{post.title}}</h1><hr>
+            <p style="font-size: 11px;">{{post.pub_date}}</p>
+            <p>{{post.body|linebreaks}}</p>
+            <hr>
+            <div>
+                <a href="{% url 'delete' pk=post.pk %}" class="postEdit">삭제하기</a>
+                <a href="{% url 'edit' index=post.pk %}" class="postEdit">수정하기</a>
+            </div>
         </main>
     </body>
 </html>

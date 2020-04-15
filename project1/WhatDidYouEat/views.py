@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Content
 from .forms import ContentForm
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def home(request):
@@ -20,3 +21,26 @@ def today(request):
     else:
         form=ContentForm()
     return render(request, 'WhatDidYouEat/today.html', {'form':form})
+
+def detail(request, index):
+    post=get_object_or_404(Content, pk=index)
+    return render(request, 'WhatDidYouEat/detail.html', {'post':post})
+
+def edit(request, index):
+    post=get_object_or_404(Content, pk=index)
+    if request.method=="POST":
+        form=ContentForm(request.POST, instance=post)
+        if form.is_valid():
+            post=form.save(commit=False)
+            post.author=request.user
+            post.published_date=timezone.now
+            post.save()
+            return redirect('detail', index=post.pk)
+    else:
+        form=ContentForm(instance=post)
+    return render(request, 'WhatDidYouEat/edit.html', {'form':form})
+
+def delete(request, pk):
+    post=get_object_or_404(Content, pk=pk)
+    post.delete()
+    return redirect('home')
