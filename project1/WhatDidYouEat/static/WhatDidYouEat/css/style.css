@@ -31,6 +31,7 @@ button, .postEdit{
     margin: 20px 10px;
     
 }
+
 div.post{
     width: 50%;
     margin: 0 auto;
@@ -39,6 +40,11 @@ div.post{
     border-radius: 5px;
     padding: 20px;
 }
+
+div.comment{
+    margin-top: 30px;
+}
+
 a{
     text-decoration: none;
     color: black;

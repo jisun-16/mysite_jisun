@@ -24,4 +24,5 @@ urlpatterns = [
     path('detail/<int:pk>', WhatDidYouEat.views.detail, name="detail"),
     path('edit/<int:pk>', WhatDidYouEat.views.edit, name="edit"),
     path('detail/<int:pk>/delete', WhatDidYouEat.views.delete, name="delete"),
+    path('detail/<int:pk>/comment/<int:comment_pk>/delete/', WhatDidYouEat.views.delete_comment,name="delete_comment"),
 ]
