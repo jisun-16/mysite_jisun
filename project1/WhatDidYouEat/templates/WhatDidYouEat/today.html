@@ -1,20 +1,14 @@
+{%extends 'WhatDidYouEat/base.html'%}
+{%block content%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="kor">
-    <head>
-        <meta charset="utf-8">
-        <title>Things I ate today</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'WhatDidYouEat/css/style.css' %}"/>
-    </head>
-    <body>
-        <header><a href="{%url 'home'%}" style="color: white;">오늘 뭐 먹었음?</a></header>
-        <main>
-            <div class="post">
-                <form method="POST" class="post-form">{% csrf_token%}
-                    {{form.as_p}}
-                    <button type="submit">저장</button>
-                </form>
-            </div>
-        </main>
-    </body>
-</html>
+
+<main>
+    <div class="post">
+        <form method="POST" class="post-form">{% csrf_token%}
+            {{form.as_p}}
+            <button type="submit">저장</button>
+        </form>
+    </div>
+</main>
+
+{%endblock%}

@@ -1,25 +1,17 @@
-
-<!DOCTYPE html>
+{%extends 'WhatDidYouEat/base.html'%}
+{%block content%}
 {% load static %}
-<html lang="kor">
-    <head>
-        <meta charset="utf-8">
-        <title>What did you eat today?</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'WhatDidYouEat/css/style.css' %}"/>
-    </head>
-    <body>
-        <header><a href="{%url 'home'%}" style="color: white;">오늘 뭐 먹었음?</a></header>
-        <div class="postEdit">
-            <a href="{% url 'today' %}">기록하기</a>
-        </div>
 
-        <main>
-            {%for post in post_list%}
-                <div class="post">
-                    <a href="{% url 'detail' pk=post.pk %}">{{post.title}}</a><br>
-                    <p style="font-size: 11px;">{{post.pub_date}}</p>
-                </div>
-            {%endfor%}
-        </main>
-    </body>
-</html>
+<div class="postEdit">
+    <a href="{% url 'today' %}">기록하기</a>
+</div>
+<main>
+    {%for post in post_list%}
+        <div class="post">
+            <a href="{% url 'detail' pk=post.pk %}">{{post.title}}</a><br>
+            <p style="font-size: 11px;">{{post.pub_date}}</p>
+        </div>
+    {%endfor%}
+</main>
+
+{%endblock%}
