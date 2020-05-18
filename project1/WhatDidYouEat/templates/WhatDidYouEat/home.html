@@ -2,16 +2,22 @@
 {%block content%}
 {% load static %}
 
-<div class="postEdit">
-    <a href="{% url 'today' %}">기록하기</a>
-</div>
 <main>
-    {%for post in post_list%}
-        <div class="post">
-            <a href="{% url 'detail' pk=post.pk %}">{{post.title}}</a><br>
-            <p style="font-size: 11px;">{{post.pub_date}}</p>
+    <div class="container">
+        <div class="row">
+            {%for post in post_list%}
+            <div class="col-lg-4 col-12 pb-5" style="width: 18rem;">
+                <img src="{%static 'WhatDidYouEat/image/card.jpg'%}" class="card-img-top" alt="card image">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.body}}</p>
+                    </div>
+                <a href="{% url 'detail' pk=post.pk %}" class="btn btn-primary">포스트 보기</a>
+            </div>
+            {%endfor%}
         </div>
-    {%endfor%}
+    </div>
+    
 </main>
 
 {%endblock%}
