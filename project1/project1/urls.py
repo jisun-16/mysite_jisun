@@ -19,6 +19,9 @@ import WhatDidYouEat.views
 import accounts.views
 from django.contrib.auth import views as auth_views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', WhatDidYouEat.views.home, name="home"),
@@ -32,3 +35,5 @@ urlpatterns = [
     path('registration/login/',auth_views.LoginView.as_view(),{'template_name':'registration/login.html'},name="login"),
     path('registeration/logged_out/',auth_views.LogoutView.as_view(),{'template_name':'regisration/logged_out.html'},name="logout"),
 ]
+
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
